@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Runtime.InteropServices;
+using System.Text.Json.Serialization;
 using AlternateLife.RageMP.Net.Data;
 using AlternateLife.RageMP.Net.Enums;
 using AlternateLife.RageMP.Net.Interfaces;
-using Newtonsoft.Json;
 
 namespace AlternateLife.RageMP.Net.Helpers
 {
@@ -107,7 +107,7 @@ namespace AlternateLife.RageMP.Net.Helpers
 
                     return new ArgumentData
                     {
-                        StringValue = StringConverter.StringToPointerUnsafe(JsonConvert.SerializeObject(element)),
+                        StringValue = StringConverter.StringToPointerUnsafe(JsonSerializer.ToString(element)),
                         ValueType = (byte) ArgumentValueType.Object
                     };
                 }
